@@ -1,0 +1,60 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="home.call"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+	<uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" ></uses-permission>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.CALL_PHONE" />
+	<uses-permission android:name="android.permission.PROCESS_INCOMING_CALLS" />
+	<uses-permission android:name="android.permission.READ_CONTACTS" />
+	<uses-permission android:name="android.permission.SEND_SMS" />
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+		
+        <activity
+            android:name="home.call.MainActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+                <activity
+            android:name="home.call.ContactList"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait"
+            >
+         
+        </activity>
+        <service
+            android:name="home.call.FlyBitch"
+            android:exported="true" />		
+            
+        
+
+<receiver android:name=".ServiceReceiver" android:enabled="true" android:exported="true">
+    <intent-filter>
+      <action android:name="android.intent.action.PHONE_STATE" />
+   </intent-filter>
+</receiver>
+
+<service android:name=".getContacts" ></service>
+    </application>
+
+</manifest>
