@@ -1,5 +1,6 @@
 package home.call;
 
+import android.app.Activity;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -32,7 +33,7 @@ public class FlyBitch extends Service {
 	@Override 
 	public void onCreate() {
 		super.onCreate();
-		SharedPreferences prefs = getApplicationContext().getSharedPreferences("MyPref", 0);
+		SharedPreferences prefs=getSharedPreferences("bzoor",Activity.MODE_PRIVATE);
 		if(prefs.getBoolean("silentOnCall",false)){
 			AudioManager aManager=(AudioManager)getSystemService(AUDIO_SERVICE);
 			if(aManager.getRingerMode() != AudioManager.RINGER_MODE_SILENT){
